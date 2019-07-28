@@ -1,0 +1,55 @@
+$primary-color: #ED2525;
+$secondary-color: #2253AD;
+$tertiary-color: #FFE228;
+$content-color: #3F3F3F;
+$background-color: #FFFFFF;
+$nav-bg: #000000;
+%content-text {
+  color: $content-color;
+  font-family: Lato;
+}
+%normal-text {
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+%emphasis-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+%heading-text {
+  color: $primary-color;
+  font-size: 1.3rem;
+}
+.navBar {
+  background-color: $nav-bg;
+  .navList {
+    flex: 1;
+    display: flex;
+    padding: 0.1rem;
+    .logo {
+      padding: 1rem;
+    }
+    .navTitle {
+      @extend %emphasis-text;
+      font-size: 1.5rem;
+      color: $background-color;
+      flex: 1;
+      padding: 2rem 0rem;
+    }
+    .navItem {
+      @extend %emphasis-text;
+      font-size: 1.3rem;
+      color: $background-color;
+      flex: 1;
+      padding: 2rem;
+    }
+  }
+}
+p {
+  @extend %content-text;
+  @extend %normal-text;
+}
+.heading {
+  @extend %heading-text;
+  @extend %emphasis-text;
+}

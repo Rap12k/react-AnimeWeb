@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
-import './style.css';
+import './assets/style/style.scss';
 
 class App extends Component {
   constructor() {
@@ -13,8 +13,15 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Hello name={this.state.name} />
+      <div className="main-content">
+          <div className="navBar">
+            <div className="navList">
+              <img className="logo" src="https://image.flaticon.com/icons/svg/1499/1499993.svg" width="50"/>
+              <div className="navTitle">AnimeDB</div>
+              <div className="navItem">Anime</div>
+              <div className="navItem">Manga</div>
+            </div>
+          </div>
         <p>
           Start editing to see some magic happen :)
         </p>
