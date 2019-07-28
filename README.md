@@ -1,3 +1,3 @@
-# react-nufksd
+# react-AnimeWeb
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-nufksd)
+Simple react application create to show information about Anime or Manga
