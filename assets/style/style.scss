@@ -20,28 +20,39 @@ $nav-bg: #000000;
   color: $primary-color;
   font-size: 1.3rem;
 }
-.navBar {
-  background-color: $nav-bg;
-  .navList {
-    flex: 1;
-    display: flex;
-    padding: 0.1rem;
-    .logo {
-      padding: 1rem;
-    }
-    .navTitle {
-      @extend %emphasis-text;
-      font-size: 1.5rem;
-      color: $background-color;
+.mainContent {
+  padding: 0 0.5rem;
+  .navBar {
+    background-color: $nav-bg;
+    .navList {
       flex: 1;
-      padding: 2rem 0rem;
+      display: flex;
+      flex-direction: row;
+      .logo {
+        padding: 1rem;
+      }
+      .navTitle {
+        @extend %emphasis-text;
+        font-size: 1.5rem;
+        color: $background-color;
+        flex: 1;
+        padding: 2rem 0rem;
+      }
+      .navItem {
+        @extend %emphasis-text;
+        font-size: 1.3rem;
+        color: $background-color;
+        flex: 1;
+        padding: 2rem;
+      }
     }
-    .navItem {
-      @extend %emphasis-text;
-      font-size: 1.3rem;
-      color: $background-color;
-      flex: 1;
-      padding: 2rem;
+  }
+  .searchBar {
+    .inputBar {
+      width: 98%;
+      border: 0.1px #000000 solid;
+      @extend %normal-text;
+      @extend %content-text;
     }
   }
 }

@@ -13,7 +13,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="main-content">
+      <div className="mainContent">
           <div className="navBar">
             <div className="navList">
               <img className="logo" src="https://image.flaticon.com/icons/svg/1499/1499993.svg" width="50"/>
@@ -22,9 +22,9 @@ class App extends Component {
               <div className="navItem">Manga</div>
             </div>
           </div>
-        <p>
-          Start editing to see some magic happen :)
-        </p>
+        <div className="searchBar">
+          <input className="inputBar" style={{paddingTop: 8, paddingLeft: "2%", paddingBottom: 8}}/>
+        </div>
       </div>
     );
   }
