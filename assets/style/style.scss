@@ -20,6 +20,9 @@ $nav-bg: #000000;
   color: $primary-color;
   font-size: 1.3rem;
 }
+body {
+  margin: 0;
+}
 .mainContent {
   padding: 0 0.5rem;
   .navBar {
