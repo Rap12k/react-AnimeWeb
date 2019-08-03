@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Hello from './Hello';
 import './assets/style/style.scss';
+import animeRow from './animeRow.js';
 
 class App extends Component {
   constructor() {
-    super();
     this.state = {
       name: 'React'
     };
