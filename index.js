@@ -13,19 +13,22 @@ class App extends Component {
 
   render() {
     return (
-      <div className="mainContent">
-          <div className="navBar">
-            <div className="navList">
-              <img className="logo" src="https://image.flaticon.com/icons/svg/1499/1499993.svg" width="50"/>
-              <div className="navTitle">AnimeDB</div>
-              <div className="navItem">Anime</div>
-              <div className="navItem">Manga</div>
-            </div>
-          </div>
+      <main className="mainContent">
+        <nav className="navBar">
+          <ul className="navList">
+            <img className="logo" src="https://image.flaticon.com/icons/svg/1499/1499993.svg" width="50"/>
+            <li className="navTitle">AnimeDB</li>
+            <li className="navItem">Anime</li>
+            <li className="navItem">Manga</li>
+          </ul>
+        </nav>
         <div className="searchBar">
           <input className="inputBar" style={{paddingTop: 8, paddingLeft: "2%", paddingBottom: 8}}/>
+          <button className="searchButton">
+            <img src="https://image.flaticon.com/icons/svg/25/25313.svg" className="imageButton"/>
+          </button>
         </div>
-      </div>
+      </main>
     );
   }
 }

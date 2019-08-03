@@ -28,6 +28,7 @@ $nav-bg: #000000;
       flex: 1;
       display: flex;
       flex-direction: row;
+      margin: 0;
       .logo {
         padding: 1rem;
       }
@@ -37,6 +38,7 @@ $nav-bg: #000000;
         color: $background-color;
         flex: 1;
         padding: 2rem 0rem;
+        list-style: none;
       }
       .navItem {
         @extend %emphasis-text;
@@ -44,15 +46,28 @@ $nav-bg: #000000;
         color: $background-color;
         flex: 1;
         padding: 2rem;
+        list-style: none;
       }
     }
   }
   .searchBar {
+    flex: 1;
+    display: flex;
     .inputBar {
       width: 98%;
       border: 0.1px #000000 solid;
-      @extend %normal-text;
+      font-size: 2rem;
       @extend %content-text;
+    }
+    .searchButton {
+      background-color: $primary-color;
+      border: 0.1px #000000 solid;
+      border-left: 0px;
+      padding: 0.8rem;
+      .imageButton {
+        height: 40px;
+        width: 40px;
+      }
     }
   }
 }
