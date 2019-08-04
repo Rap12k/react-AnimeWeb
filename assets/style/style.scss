@@ -73,6 +73,32 @@ body {
       }
     }
   }
+  .contentRow {
+    .animeBody {
+      display: flex;
+      flex-direction: row;
+      border: #F4F1EB 1px solid;
+      margin-bottom: 1rem;
+      .animePoster {
+        flex: 1;
+        padding: 1rem;
+      }
+      .animeContent {
+        flex: 3;
+        padding: 1rem;
+        .heading {
+          margin: 0;
+        }
+        .animeData {
+          padding: 1rem;
+          .animeSynopsis {
+            @extend %content-text;
+            @extend %normal-text;
+          }
+        }
+      }
+    }
+  }
 }
 p {
   @extend %content-text;
@@ -81,4 +107,32 @@ p {
 .heading {
   @extend %heading-text;
   @extend %emphasis-text;
+  text-align: center;
+}
+.subHeading {
+  @extend %normal-text;
+  text-align: center;
+  color: #000000;
+}          
+.dataTable {
+  flex: 1;
+  width: 100%;
+  padding: 1rem;
+  border-collapse: collapse;
+  border-spacing: 0;
+  tr:nth-child(odd) {
+    background-color: $primary-color;
+  }
+  th {
+    color: white;
+    background-color: $secondary-color;
+    border: 1px solid $content-color;
+    padding: 1rem;
+  }
+  td {
+    width: auto;
+    border: 1px solid $content-color;
+    padding: 1rem;
+    text-align: center;
+  }
 }
