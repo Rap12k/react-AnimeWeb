@@ -10,6 +10,7 @@ class App extends Component {
       picked: 0,
       value: 0,
       disabled: false,
+      rows: [<p key="1">test</p>]
     };
 
     /*const animes = [
@@ -76,10 +77,20 @@ class App extends Component {
           fetch(query)
             .then(response => response.json())
             .then(responseJson => {
+              const results = responseJson.results
+
+              var animeRows = []
+
+              results.forEach((anime) => {
+                console.log(anime.title)
+                const anime = <AnimeRow anime={anime} />
+                animeRows.push(anime)
+              })
+
               this.setState({
                 disabled: false,
+                rows: animeRows
                 });
-              const results = responseJson.results
             })
             .catch(error => {
               console.error(error);
@@ -100,7 +111,7 @@ class App extends Component {
         </nav>
         <section className="searchBar">
           <input className="inputBar" style={{paddingTop: 8, paddingLeft: "2%", paddingBottom: 8}}/>
-          <button className="searchButton">
+          <button className="searchButton" disabled={this.state.disabled}>
             <img src="https://image.flaticon.com/icons/svg/25/25313.svg" className="imageButton"/>
           </button>
         </section>
