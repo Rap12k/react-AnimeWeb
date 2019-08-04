@@ -3,6 +3,7 @@ $secondary-color: #2253AD;
 $tertiary-color: #FFE228;
 $content-color: #3F3F3F;
 $background-color: #FFFFFF;
+$padding-default: 1rem;
 $nav-bg: #000000;
 %content-text {
   color: $content-color;
@@ -23,6 +24,46 @@ $nav-bg: #000000;
 body {
   margin: 0;
 }
+p {
+  @extend %content-text;
+  @extend %normal-text;
+  @media (max-width: 940px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 799px) {
+    font-size: 0.8rem;
+  }
+}
+.heading {
+  @extend %heading-text;
+  @extend %emphasis-text;
+  text-align: center;
+}
+h2.heading {
+  color: black;
+  padding: $padding-default;
+  font-size: 2rem;
+  @media (max-width: 940px) {
+    font-size: 1.75rem;
+  }
+  @media (max-width: 799px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 529px) {
+    font-size: 1.25rem;
+  }
+}
+.subHeading {
+  @extend %normal-text;
+  text-align: center;
+  color: #000000;
+  @media (max-width: 940px) {
+    font-size: 1.1rem;
+  }
+  @media (max-width: 799px) {
+    font-size: 1rem;
+  }
+}    
 .mainContent {
   padding: 0 0.5rem;
   background-color: whitesmoke;
@@ -33,9 +74,12 @@ body {
       display: flex;
       flex-direction: row;
       margin: 0;
+      padding-left: 0;
       .logo {
-        padding: 1rem;
+        padding: $padding-default;
       }
+      justify-content: center;
+      align-items: center;
       .navTitle {
         @extend %emphasis-text;
         font-size: 1.5rem;
@@ -43,6 +87,14 @@ body {
         flex: 1;
         padding: 2rem 0rem;
         list-style: none;
+        @media (max-width: 529px) {
+          font-size: 1rem;
+          padding: $padding-default 0;
+        }
+        @media (max-width: 374px) {
+          font-size: 0.8rem;
+          padding: $padding-default/2 0;
+        }
       }
       .navItem {
         @extend %emphasis-text;
@@ -51,6 +103,14 @@ body {
         flex: 1;
         padding: 2rem;
         list-style: none;
+        @media (max-width: 529px) {
+          font-size: 0.8rem;
+          padding: $padding-default/2;
+        }
+        @media (max-width: 374px) {
+          font-size: 0.8rem;
+          padding: $padding-default/2 0;
+        }
       }
     }
   }
@@ -84,18 +144,44 @@ body {
       border: #F4F1EB 1px solid;
       margin-bottom: 1rem;
       background-color: white;
+      figure {
+        display: flex;
+        margin: 0;
+        justify-items: center;
+        img {
+          width: 100%;
+        }
+      }
+      @media (max-width: 529px) {
+        flex-direction: column;
+      }
       .animePoster {
         flex: 1;
-        padding: 1rem;
+        padding: $padding-default;
+        @media (max-width: 940px) {
+          padding: $padding-default/2;
+        }
+        @media (max-width: 799px) {
+          padding: $padding-default/4;
+        }
       }
       .animeContent {
         flex: 3;
-        padding: 1rem;
+        padding: $padding-default;
+        @media (max-width: 940px) {
+          padding: $padding-default/2;
+        }
         .heading {
           margin: 0;
         }
         .animeData {
-          padding: 1rem;
+          padding: $padding-default;
+          @media (max-width: 940px) {
+            padding: $padding-default/2;
+          }
+          @media (max-width: 799px) {
+          padding: $padding-default/4;
+        }
           .animeSynopsis {
             @extend %content-text;
             @extend %normal-text;
@@ -107,48 +193,39 @@ body {
           .learnMore {
             margin-top: 1rem;
             text-align: center;
-            padding: 0.5rem;
+            padding: $padding-default/2;
             background-color: $tertiary-color;
             @extend %normal-text;
             border-color: black;
+            @media(max-width: 940px) {
+              margin-top: $padding-default/2;
+              padding: $padding-default/3;
+              font-size: 1rem;
+            }
           }
           .malButton {
             margin-top: 1rem;
             text-align: center;
-            padding: 0.5rem;
+            padding: $padding-default/2;
             background-color: $secondary-color;
             color: white;
             @extend %normal-text;
             border-color: black;
+            @media(max-width: 940px) {
+              margin-top: $padding-default/2;
+              padding: $padding-default/3;
+              font-size: 1rem;
+            }
           }
         }
       }
     }
   }
-}
-p {
-  @extend %content-text;
-  @extend %normal-text;
-}
-.heading {
-  @extend %heading-text;
-  @extend %emphasis-text;
-  text-align: center;
-}
-h2.heading {
-  color: black;
-  padding: 1rem;
-  font-size: 2rem;
-}
-.subHeading {
-  @extend %normal-text;
-  text-align: center;
-  color: #000000;
-}          
+}      
 .dataTable {
   flex: 1;
   width: 100%;
-  padding: 1rem;
+  padding: $padding-default;
   border-collapse: collapse;
   border-spacing: 0;
   tr:nth-child(odd) {
@@ -158,12 +235,26 @@ h2.heading {
     color: white;
     background-color: black;
     border: 1px solid $content-color;
-    padding: 1rem;
+    padding: $padding-default;
+    @media (max-width: 940px) {
+      padding: $padding-default/2;
+    }
+    @media (max-width: 799px) {
+      padding: $padding-default/4;
+      font-size: 0.8rem;
+    }
   }
   td {
     width: auto;
     border: 1px solid $content-color;
-    padding: 1rem;
+    padding: $padding-default;
     text-align: center;
+    @media (max-width: 940px) {
+      padding: $padding-default/2;
+    }
+    @media (max-width: 799px) {
+      padding: $padding-default/4;
+      font-size: 0.8rem;
+    }
   }
 }
