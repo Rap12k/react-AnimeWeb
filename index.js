@@ -112,6 +112,7 @@ class App extends Component {
           <input 
           className="inputBar" 
           style={{paddingTop: 8, paddingLeft: "2%", paddingBottom: 8}} 
+          disabled={this.state.disabled}
           value={this.state.searchString} 
           onChange={this._handleChange}
           onKeyPress={this._submitPressed}
