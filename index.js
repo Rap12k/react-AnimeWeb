@@ -29,7 +29,7 @@ class App extends Component {
     this.performSearch()
   }
 
-  performSearch() {
+  performSearch = () => {
     console.log("starting search")
     const query = this._urlQuery();
     this._executeQuery(query);
@@ -47,7 +47,7 @@ class App extends Component {
     
     const querystring = Object.keys(params)
       .map(key => key + '=' + encodeURIComponent(params[key]))
-      .join('%');
+      .join('&');
     switch (this.state.value) {
       case 0:
       case 1:
