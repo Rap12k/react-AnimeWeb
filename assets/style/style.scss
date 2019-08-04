@@ -96,6 +96,27 @@ body {
             @extend %normal-text;
           }
         }
+        .buttonContainer {
+          display: flex;
+          justify-content: space-evenly;
+          .learnMore {
+            margin-top: 1rem;
+            text-align: center;
+            padding: 0.5rem;
+            background-color: $tertiary-color;
+            @extend %normal-text;
+            border-color: black;
+          }
+          .malButton {
+            margin-top: 1rem;
+            text-align: center;
+            padding: 0.5rem;
+            background-color: $secondary-color;
+            color: white;
+            @extend %normal-text;
+            border-color: black;
+          }
+        }
       }
     }
   }

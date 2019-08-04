@@ -49,6 +49,10 @@ class App extends Component {
                 <td>R</td>
               </tr>
             </table>
+            <section className="buttonContainer">
+              <button className="learnMore">Learn More</button>
+              <button className="malButton">MyAnimeList</button>
+            </section>
           </article>
         </section>
       )
