@@ -37,7 +37,7 @@ class App extends Component {
     const params = {
       q: this.state.searchString,
       limit: 50,
-      type: this.state.picked
+      //type: this.state.picked
     };
     var key;
     key = params[key];
