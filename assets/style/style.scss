@@ -73,6 +73,9 @@ body {
         width: 40px;
       }
     }
+    .searchButton:disabled {
+      background-color: grey;
+    }
   }
   .contentRow {
     .animeBody {

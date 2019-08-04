@@ -116,7 +116,7 @@ class App extends Component {
           onChange={this._handleChange}
           onKeyPress={this._submitPressed}
           />
-          <button className="searchButton" disabled={this.state.disabled}>
+          <button className="searchButton" disabled={this.state.disabled} onClick={this.performSearch}>
             <img src="https://image.flaticon.com/icons/svg/25/25313.svg" className="imageButton"/>
           </button>
         </section>

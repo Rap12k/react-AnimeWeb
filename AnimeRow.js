@@ -30,8 +30,8 @@ class AnimeRow extends React.Component {
             <tr>
               <td>{this.props.anime.type}</td>
               <td>{this.props.anime.episodes ? this.props.anime.episodes : 'None'}</td>
-              <td>{this.props.anime.score}</td>
-              <td>{this.props.anime.start_date.slice(0,10)}</td>
+              <td>{this.props.anime.score ? this.props.anime.score : 'None'}</td>
+              <td>{this.props.anime.start_date ? this.props.anime.start_date.slice(0,10) : 'None'}</td>
               <td>{this.props.anime.end_date ? this.props.anime.end_date.slice(0,10) : 'None'}</td>
               <td>{this.props.anime.rated ? this.props.anime.rated : 'None'}</td>
             </tr>
