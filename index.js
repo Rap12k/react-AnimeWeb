@@ -4,35 +4,34 @@ import './assets/style/style.scss';
 import AnimeRow from './AnimeRow.js';
 
 class App extends Component {
-  constructor() {
+  constructor(props) {
+    super(props)
     this.state = {
       searchString: '',
       picked: 0,
       value: 0,
       disabled: false,
-      rows: [<p key="1">test</p>]
+      rows: [
+        <h2 className="heading" key="1">
+        Enter an Anime to Search in the Above SearchBar
+        </h2>
+        ]
     };
-
-    /*const animes = [
-      {id: 0, title: "Anime Title", synopsis: "As the Fourth Holy Grail War rages on with no clear victor in sight, the remaining Servants and their Masters are called upon by Church supervisor Risei Kotomine, in order to band together and confron...", image_url: "https://1.bp.blogspot.com/-lUDcZyriPL4/XQVfQnw3ReI/AAAAAAAAoZw/4qk-I3SVCaITsn7vbxBp0SVKV0l4GIgkACLcBGAs/w180/ta_31-the-two-gets-by-tomorrow-too-more-or-less.jpg"},
-      {id: 1, title: "Anime Title", synopsis: "As the Fourth Holy Grail War rages on with no clear victor in sight, the remaining Servants and their Masters are called upon by Church supervisor Risei Kotomine, in order to band together and confron...", image_url: "https://1.bp.blogspot.com/-lUDcZyriPL4/XQVfQnw3ReI/AAAAAAAAoZw/4qk-I3SVCaITsn7vbxBp0SVKV0l4GIgkACLcBGAs/w180/ta_31-the-two-gets-by-tomorrow-too-more-or-less.jpg"}
-    ]
-
-    var animeRows = []
-    animes.forEach((anime) => {
-      console.log(anime.title)
-      const animeRow = <AnimeRow anime={anime} />
-      animeRows.push(animeRow)
-    })
-
-    this.state = {rows: animeRows}*/
-    this.performSearch()
   }
 
   performSearch = () => {
     console.log("starting search")
     const query = this._urlQuery();
     this._executeQuery(query);
+  }
+  _handleChange = (event) => {
+    this.setState({searchString: event.target.value});
+    console.log(this.state.searchString)
+  }
+  _submitPressed = (event) => {
+    if (event.key === 'Enter') {
+      this.performSearch();
+    }
   }
   _urlQuery = () => {
     const params = {
@@ -110,7 +109,13 @@ class App extends Component {
           </ul>
         </nav>
         <section className="searchBar">
-          <input className="inputBar" style={{paddingTop: 8, paddingLeft: "2%", paddingBottom: 8}}/>
+          <input 
+          className="inputBar" 
+          style={{paddingTop: 8, paddingLeft: "2%", paddingBottom: 8}} 
+          value={this.state.searchString} 
+          onChange={this._handleChange}
+          onKeyPress={this._submitPressed}
+          />
           <button className="searchButton" disabled={this.state.disabled}>
             <img src="https://image.flaticon.com/icons/svg/25/25313.svg" className="imageButton"/>
           </button>

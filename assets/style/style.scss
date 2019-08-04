@@ -25,6 +25,7 @@ body {
 }
 .mainContent {
   padding: 0 0.5rem;
+  background-color: whitesmoke;
   .navBar {
     background-color: $nav-bg;
     .navList {
@@ -79,6 +80,7 @@ body {
       flex-direction: row;
       border: #F4F1EB 1px solid;
       margin-bottom: 1rem;
+      background-color: white;
       .animePoster {
         flex: 1;
         padding: 1rem;
@@ -130,6 +132,11 @@ p {
   @extend %emphasis-text;
   text-align: center;
 }
+h2.heading {
+  color: black;
+  padding: 1rem;
+  font-size: 2rem;
+}
 .subHeading {
   @extend %normal-text;
   text-align: center;
@@ -142,11 +149,11 @@ p {
   border-collapse: collapse;
   border-spacing: 0;
   tr:nth-child(odd) {
-    background-color: $primary-color;
+    background-color: white;;
   }
   th {
     color: white;
-    background-color: $secondary-color;
+    background-color: black;
     border: 1px solid $content-color;
     padding: 1rem;
   }
