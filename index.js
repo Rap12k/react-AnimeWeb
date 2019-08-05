@@ -103,13 +103,12 @@ class App extends Component {
           fetch(query)
             .then(response => response.json())
             .then(responseJson => {
-              const results = responseJson.results
-
+              const mangaResults = responseJson.results
               var mangaRows = []
 
-              results.forEach((manga) => {
+              mangaResults.forEach((manga) => {
                 console.log(manga.title)
-                const anime = <MangaRow manga={manga} />
+                const manga = <MangaRow manga={manga} />
                 mangaRows.push(manga)
               })
 

@@ -20,20 +20,20 @@ class MangaRow extends React.Component {
             <tr>
               <th>Type</th>
               <th>Chapters</th>
+              <th>Volumes</th>
               <th>Score</th>
               <th>Start Date</th>
               <th>End Date</th>
-              <th>Rating</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>{this.props.manga.type}</td>
               <td>{this.props.manga.chapters ? this.props.manga.chapters : 'None'}</td>
+              <td>{this.props.manga.volumes ? this.props.manga.volumes : 'None'}</td>
               <td>{this.props.manga.score ? this.props.manga.score : 'None'}</td>
               <td>{this.props.manga.start_date ? this.props.manga.start_date.slice(0,10) : 'None'}</td>
               <td>{this.props.manga.end_date ? this.props.manga.end_date.slice(0,10) : 'None'}</td>
-              <td>{this.props.manga.rated ? this.props.manga.rated : 'None'}</td>
             </tr>
           </tbody>
         </table>
@@ -41,7 +41,7 @@ class MangaRow extends React.Component {
           <button className="learnMore">Learn More</button>
           <button 
           className="malButton" 
-          onClick={this.navigateMAL}>MymangaList</button>
+          onClick={this.navigateMAL}>MyAnimeList</button>
         </section>
       </article>
     </section>
