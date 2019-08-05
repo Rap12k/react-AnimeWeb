@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './assets/style/style.scss';
 import AnimeRow from './AnimeRow.js';
+import MangaRow from './MangaRow.js';
 
 class App extends Component {
   constructor(props) {
@@ -11,9 +12,11 @@ class App extends Component {
       picked: 0,
       value: 0,
       disabled: false,
+      manga: false,
+      anime: true,
       rows: [
         <h2 className="heading" key="1">
-        Enter an Anime to Search in the Above SearchBar
+        Enter an Anime/Manga to Search in the Above SearchBar
         </h2>
         ]
     };
@@ -32,6 +35,20 @@ class App extends Component {
     if (event.key === 'Enter') {
       this.performSearch();
     }
+  }
+  _onAnimeButtonPressed = () => {
+    this.setState({
+      value: 0,
+      anime: true,
+      manga: false,
+    })
+  }
+  _onMangaButtonPressed = () => {
+    this.setState({
+      value: 1,
+      anime: false,
+      manga: true,
+    })
   }
   _urlQuery = () => {
     const params = {
@@ -64,20 +81,7 @@ class App extends Component {
           fetch(query)
             .then(response => response.json())
             .then(responseJson => {
-              this.setState({
-                disabled: false,
-                });
               const results = responseJson.results
-            })
-            .catch(error => {
-              console.error(error);
-            });
-        case 1:
-          fetch(query)
-            .then(response => response.json())
-            .then(responseJson => {
-              const results = responseJson.results
-
               var animeRows = []
 
               results.forEach((anime) => {
@@ -94,18 +98,44 @@ class App extends Component {
             .catch(error => {
               console.error(error);
             });
+          break;
+        case 1:
+          fetch(query)
+            .then(response => response.json())
+            .then(responseJson => {
+              const results = responseJson.results
+
+              var mangaRows = []
+
+              results.forEach((manga) => {
+                console.log(manga.title)
+                const anime = <MangaRow manga={manga} />
+                mangaRows.push(manga)
+              })
+
+              this.setState({
+                disabled: false,
+                rows: mangaRows,
+                });
+            })
+            .catch(error => {
+              console.error(error);
+            });
+          break;
       }
   }
 
   render() {
+    let abtn_class = this.state.anime ? "button-selected" : "medium-button";
+    let mbtn_class = this.state.manga ? "button-selected" : "medium-button";
     return (
       <main className="mainContent">
         <nav className="navBar">
           <ul className="navList">
             <img className="logo" src="https://image.flaticon.com/icons/svg/1499/1499993.svg" width="50"/>
             <li className="navTitle">AnimeDB</li>
-            <li className="navItem">Anime</li>
-            <li className="navItem">Manga</li>
+            <li className="navItem"><button className={abtn_class} onClick={this._onAnimeButtonPressed} disabled={this.state.anime}>Anime</button></li>
+            <li className="navItem"><button className={mbtn_class} onClick={this._onMangaButtonPressed} disabled={this.state.manga}>Manga</button></li>
           </ul>
         </nav>
         <section className="searchBar">

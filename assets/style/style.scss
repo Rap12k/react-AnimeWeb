@@ -1,7 +1,7 @@
 $primary-color: #ED2525;
 $secondary-color: #2253AD;
 $tertiary-color: #FFE228;
-$content-color: #3F3F3F;
+$content-color: #3E3E3E;
 $background-color: #FFFFFF;
 $padding-default: 1rem;
 $nav-bg: #000000;
@@ -101,8 +101,26 @@ h2.heading {
         font-size: 1.3rem;
         color: $background-color;
         flex: 1;
-        padding: 2rem;
         list-style: none;
+        .medium-button {
+          border: 0;
+          color: inherit;
+          background-color: inherit;
+          font-size: inherit;
+          @extend %emphasis-text;
+          padding: 2rem;
+        }
+        .medium-button:hover {
+          background-color: $primary-color;
+        }
+        .button-selected {
+          border: 0;
+          color: inherit;
+          font-size: inherit;
+          @extend %emphasis-text;
+          padding: 2rem;
+          background-color: $secondary-color;
+        }
         @media (max-width: 529px) {
           font-size: 0.8rem;
           padding: $padding-default/2;
@@ -138,11 +156,11 @@ h2.heading {
     }
   }
   .contentRow {
-    .animeBody {
+    .animeBody, .mangaBody {
       display: flex;
       flex-direction: row;
       border: #F4F1EB 1px solid;
-      margin-bottom: 1rem;
+      margin-top: 1rem;
       background-color: white;
       figure {
         display: flex;
@@ -155,7 +173,7 @@ h2.heading {
       @media (max-width: 529px) {
         flex-direction: column;
       }
-      .animePoster {
+      .animePoster, .mangaPoster {
         flex: 1;
         padding: $padding-default;
         @media (max-width: 940px) {
@@ -165,7 +183,7 @@ h2.heading {
           padding: $padding-default/4;
         }
       }
-      .animeContent {
+      .animeContent, .mangaBody {
         flex: 3;
         padding: $padding-default;
         @media (max-width: 940px) {
@@ -174,7 +192,7 @@ h2.heading {
         .heading {
           margin: 0;
         }
-        .animeData {
+        .animeData, .mangaData {
           padding: $padding-default;
           @media (max-width: 940px) {
             padding: $padding-default/2;
@@ -182,7 +200,7 @@ h2.heading {
           @media (max-width: 799px) {
           padding: $padding-default/4;
         }
-          .animeSynopsis {
+          .animeSynopsis, .mangaSynopsis {
             @extend %content-text;
             @extend %normal-text;
           }
@@ -193,9 +211,10 @@ h2.heading {
           .learnMore {
             margin-top: 1rem;
             text-align: center;
-            padding: $padding-default/2;
+            padding: $padding-default/2 $padding-default;
             background-color: $tertiary-color;
-            @extend %normal-text;
+            @extend %emphasis-text;
+            font-size: 1.25rem;
             border-color: black;
             @media(max-width: 940px) {
               margin-top: $padding-default/2;
@@ -206,10 +225,11 @@ h2.heading {
           .malButton {
             margin-top: 1rem;
             text-align: center;
-            padding: $padding-default/2;
+            padding: $padding-default/2 $padding-default;
             background-color: $secondary-color;
             color: white;
-            @extend %normal-text;
+            @extend %emphasis-text;
+            font-size: 1.25rem;
             border-color: black;
             @media(max-width: 940px) {
               margin-top: $padding-default/2;
@@ -232,10 +252,11 @@ h2.heading {
     background-color: white;;
   }
   th {
-    color: white;
-    background-color: black;
+    background-color: #252422;
     border: 1px solid $content-color;
     padding: $padding-default;
+    @extend %emphasis-text;
+    color: white;
     @media (max-width: 940px) {
       padding: $padding-default/2;
     }
