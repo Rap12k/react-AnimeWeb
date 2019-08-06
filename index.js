@@ -86,7 +86,7 @@ class App extends Component {
 
               results.forEach((anime) => {
                 console.log(anime.title)
-                const anime = <AnimeRow anime={anime} />
+                const anime = <AnimeRow anime={anime} key={anime.mal_id} />
                 animeRows.push(anime)
               })
 
@@ -108,7 +108,7 @@ class App extends Component {
 
               mangaResults.forEach((manga) => {
                 console.log(manga.title)
-                const manga = <MangaRow manga={manga} />
+                const manga = <MangaRow manga={manga} key={manga.mal_id} />
                 mangaRows.push(manga)
               })
 
